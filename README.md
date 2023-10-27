@@ -157,7 +157,7 @@ ENCE 3321
     
         # Close socket
         s.close()
-<p align="center">Figure 6 (Snippet of the code from ping_client())</p>
+<p align="center">Figure 6 (Snippet of the code from client.py))</p>
 </p></dd></dl> 
 
 <h2>Server</h2> <a name="stats"></a>
@@ -234,7 +234,7 @@ ENCE 3321
     
         # Close socket
         s.close()
-<p align="center">Figure 6 (Snippet of the code from ping_client())</p>
+<p align="center">Figure 6 (Snippet of the code from server.py)</p>
 </p></dd></dl> 
 
 <h2>Conclusion</h3>  <a name="conclusion"></a>
