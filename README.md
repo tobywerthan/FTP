@@ -9,13 +9,13 @@ ENCE 3321
 ## Table of Contents
 1. [Introduction](#introduction)
 2. [Flowcharts](#main)
-    1. [1](#mainDesc)
-    2. [2](#mainChart)
-    3. [3](#mainCode)
+    1. [tcp_client](#mainDesc)
+    2. [tcp_server](#mainChart)
 3. [Finite State Machines](#create)
-    1. [1](#createDesc)
-    2. [2](#createChart)
-4. [Client](ping#)
+    1. [Client](#createDesc)
+    2. [Server](#createChart)
+    3. [Threading](#createCode)
+4. [Client](#ping)
 6. [Server](#stats)
 7. [Conclusion](#conclusion)
 
@@ -30,33 +30,24 @@ ENCE 3321
 
 <h2>Flowcharts</h2> <a name="main"></a>
 
-<dl><dd><h3>1</h3> <a name="mainDesc"></a></dd></dl> 
+<dl><dd><h3>tcp_client</h3> <a name="mainDesc"></a></dd></dl> 
 
 <dl><dd><dl><dd><p>
 <p align="center">
-  <img width="250" height="600" src="https://github.com/tobywerthan/FTP/assets/55803740/fa953e9e-cf74-447a-9a59-1f96a8ab2afe">
+  <img width="350" height="600" src="https://github.com/tobywerthan/FTP/assets/55803740/fa953e9e-cf74-447a-9a59-1f96a8ab2afe">
 </p>
 
-<p align="center">Figure 1 (Flowchart of main())</p>
+<p align="center">Figure 1 (Flowchart of tcp_client)</p>
 
 </p></dd></dl></dd></dl>
 
-<dl><dd><h3>2</h3> <a name="mainChart"></a></dd></dl> 
+<dl><dd><h3>tcp_server</h3> <a name="mainChart"></a></dd></dl> 
 
 <dl><dd><dl><dd><p>
 <p align="center">
   <img width="250" height="600" src="https://github.com/tobywerthan/ENCE_3321_NetworkDesign_2023/assets/55803740/5d87614f-569c-4796-9e3a-a76e2b391555">
 </p>
-<p align="center">Figure 1 (Flowchart of main())</p>
-</p></dd></dl></dd></dl>
-
-<dl><dd><h3>3</h3> <a name="mainCode"></a></dd></dl> 
-
-<dl><dd><dl><dd><p>
-<p align="center">
-  <img width="250" height="600" src="https://github.com/tobywerthan/ENCE_3321_NetworkDesign_2023/assets/55803740/5d87614f-569c-4796-9e3a-a76e2b391555">
-</p>
-<p align="center">Figure 1 (Flowchart of main())</p>
+<p align="center">Figure 2 (Flowchart of tcp_server)</p>
 </p></dd></dl></dd></dl>
 
 <h2>Finite State Machines</h2> <a name="create"></a>
@@ -67,7 +58,7 @@ ENCE 3321
 <p align="center">
   <img width="250" height="600" src="https://github.com/tobywerthan/ENCE_3321_NetworkDesign_2023/assets/55803740/5d87614f-569c-4796-9e3a-a76e2b391555">
 </p>
-<p align="center">Figure 1 (Flowchart of main())</p>
+<p align="center">Figure 3 (Client FSM)</p>
 
 </p></dd></dl></dd></dl>
 
@@ -77,7 +68,17 @@ ENCE 3321
 <p align="center">
   <img width="250" height="600" src="https://github.com/tobywerthan/ENCE_3321_NetworkDesign_2023/assets/55803740/5d87614f-569c-4796-9e3a-a76e2b391555">
 </p>
-<p align="center">Figure 1 (Flowchart of main())</p>
+<p align="center">Figure 4 (Server FSM)</p>
+
+</p></dd></dl></dd></dl>
+
+<dl><dd><h3>2</h3> <a name="createCode"></a></dd></dl> 
+
+<dl><dd><dl><dd><p>
+<p align="center">
+  <img width="250" height="600" src="https://github.com/tobywerthan/ENCE_3321_NetworkDesign_2023/assets/55803740/5d87614f-569c-4796-9e3a-a76e2b391555">
+</p>
+<p align="center">Figure 5 (Threading FSM)</p>
 
 </p></dd></dl></dd></dl>
 
