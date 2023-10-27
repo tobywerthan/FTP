@@ -52,7 +52,7 @@ ENCE 3321
 
 <h2>Finite State Machines</h2> <a name="create"></a>
 
-<dl><dd><h3>1</h3> <a name="createDesc"></a></dd></dl> 
+<dl><dd><h3>Client</h3> <a name="createDesc"></a></dd></dl> 
 
 <dl><dd><dl><dd><p>
 <p align="center">
@@ -62,7 +62,7 @@ ENCE 3321
 
 </p></dd></dl></dd></dl>
 
-<dl><dd><h3>2</h3> <a name="createChart"></a></dd></dl> 
+<dl><dd><h3>Server</h3> <a name="createChart"></a></dd></dl> 
 
 <dl><dd><dl><dd><p>
 <p align="center">
@@ -72,7 +72,7 @@ ENCE 3321
 
 </p></dd></dl></dd></dl>
 
-<dl><dd><h3>2</h3> <a name="createCode"></a></dd></dl> 
+<dl><dd><h3>Threading</h3> <a name="createCode"></a></dd></dl> 
 
 <dl><dd><dl><dd><p>
 <p align="center">
