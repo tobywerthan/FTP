@@ -45,7 +45,7 @@ ENCE 3321
 
 <dl><dd><dl><dd><p>
 <p align="center">
-  <img width="350" height="800" src="https://github.com/tobywerthan/FTP/assets/55803740/3e4c9880-396c-4dbe-9813-b6c4b8781ab8">
+  <img width="300" height="800" src="https://github.com/tobywerthan/FTP/assets/55803740/3e4c9880-396c-4dbe-9813-b6c4b8781ab8">
 </p>
 
 <p align="center">Figure 2 (Flowchart of tcp_server)</p>
