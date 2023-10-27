@@ -34,8 +34,9 @@ ENCE 3321
 
 <dl><dd><dl><dd><p>
 <p align="center">
-  <img width="250" height="600" src="https://github.com/tobywerthan/ENCE_3321_NetworkDesign_2023/assets/55803740/5d87614f-569c-4796-9e3a-a76e2b391555">
+  <img width="250" height="600" src="https://github.com/tobywerthan/FTP/assets/55803740/fa953e9e-cf74-447a-9a59-1f96a8ab2afe">
 </p>
+
 <p align="center">Figure 1 (Flowchart of main())</p>
 
 </p></dd></dl></dd></dl>
