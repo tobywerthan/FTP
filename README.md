@@ -24,7 +24,7 @@ ENCE 3321
 <h2>Introduction</h2>  <a name="introduction"></a>
 <dl><dd>
     <p>
-       The purpose of this homework was to create a UDP client in Python that acts as a pinger. The client is meant to interact with the provided server through UDP sockets. The client sends a message (utf-8 encoded) to the server and receives one back depending on if simulated packet loss is enabled. The round trip time of each packet, as well as the total RTT of 10 transmitted packets, is calculated. Each packet's RTT is displayed if the message from the server is received. Once all packets have been transmitted, the pinger statistics are displayed including total RTT, packet loss, and packets transmitted. This program uses the packages: time, sys, and socket. 
+       The purpose of Homework 5 was to create an FTP server and client that communicate through TCP. 
     </p>
 </dd><dl>
 
@@ -57,7 +57,7 @@ ENCE 3321
 
 <dl><dd><dl><dd><p>
 <p align="center">
-  <img width="250" height="600" src="https://github.com/tobywerthan/ENCE_3321_NetworkDesign_2023/assets/55803740/5d87614f-569c-4796-9e3a-a76e2b391555">
+  <img width="500" height="600" src="https://github.com/tobywerthan/FTP/assets/55803740/0d9b4a0b-ee82-4473-b2b4-f836303b0e4e">
 </p>
 <p align="center">Figure 3 (Client FSM)</p>
 
@@ -67,7 +67,7 @@ ENCE 3321
 
 <dl><dd><dl><dd><p>
 <p align="center">
-  <img width="250" height="600" src="https://github.com/tobywerthan/ENCE_3321_NetworkDesign_2023/assets/55803740/5d87614f-569c-4796-9e3a-a76e2b391555">
+  <img width="500" height="600" src="https://github.com/tobywerthan/FTP/assets/55803740/d093f977-4099-401e-89e6-af33f0477a74">
 </p>
 <p align="center">Figure 4 (Server FSM)</p>
 
@@ -77,171 +77,17 @@ ENCE 3321
 
 <dl><dd><dl><dd><p>
 <p align="center">
-  <img width="250" height="600" src="https://github.com/tobywerthan/ENCE_3321_NetworkDesign_2023/assets/55803740/5d87614f-569c-4796-9e3a-a76e2b391555">
+  <img width="500" height="600" src="https://github.com/tobywerthan/FTP/assets/55803740/9b369936-b789-4854-b3cc-a2d0c957efac">
 </p>
 <p align="center">Figure 5 (Threading FSM)</p>
 
 </p></dd></dl></dd></dl>
 
-<h2>Client</h2> <a name="ping"></a>
-
-<dl><dd><p>
-
-    def ping_client():
-        # Global variables
-        global s, host, port, RTT, ptime, addr, time, packet_lost
-    
-        # Sequence number of the ping message
-        ptime = 0
-    
-        # Set round trip time, number of packets lost, client input, and number of client inputs to empty or zero
-        RTT = 0
-        packet_lost = 0
-        client_input = ""
-        input_count = 0
-    
-        # Get the input message from the client
-        while not (client_input == "RND" or client_input == "NO RND"):
-            if input_count > 0:
-                print("ping> Unrecognized Command: {}".format(client_input))
-                print("      Valid Commands: RND, NO RND")
-            client_input = input("ping> ").strip()
-            input_count += 1
-        print("")
-        print("Pinging server in mode: {}".format(client_input))
-        print("")
-    
-        # Ping for 10 times
-        while ptime < 10:
-            ptime += 1
-            # Format the message to be sent
-            message = client_input
-    
-            try:
-                # Sent time
-                RTTb = time.time()
-    
-                # Send the UDP packet with the ping message
-                try:
-                    s.sendto(message.encode("utf-8"), (host, port))
-                except socket.error as msg:
-                    print(str(msg))
-    
-                # Receive the server response
-                data, addr = s.recvfrom(2048)
-    
-                # Received time
-                RTTa = time.time()
-    
-                # Compute RTT
-                RTT_packet = RTTa - RTTb
-                RTT = (RTT_packet) + RTT
-    
-                # Display packet time
-                dataCount = len(data)
-                print(
-                    "{} bytes from {}: seq={} time={} ms".format(
-                        dataCount, addr[0], ptime, RTT_packet * 1000
-                    )
-                )
-    
-                # Delay for readability
-                sleep(1)
-    
-            except:
-                # Server does not response
-                # Assume the packet is lost
-                print("Request timed out.")
-                packet_lost += 1
-                continue
-    
-        # Close socket
-        s.close()
-<p align="center">Figure 6 (Snippet of the code from client.py))</p>
-</p></dd></dl> 
-
-<h2>Server</h2> <a name="stats"></a>
-
-<dl><dd><p>
-
-    def ping_client():
-        # Global variables
-        global s, host, port, RTT, ptime, addr, time, packet_lost
-    
-        # Sequence number of the ping message
-        ptime = 0
-    
-        # Set round trip time, number of packets lost, client input, and number of client inputs to empty or zero
-        RTT = 0
-        packet_lost = 0
-        client_input = ""
-        input_count = 0
-    
-        # Get the input message from the client
-        while not (client_input == "RND" or client_input == "NO RND"):
-            if input_count > 0:
-                print("ping> Unrecognized Command: {}".format(client_input))
-                print("      Valid Commands: RND, NO RND")
-            client_input = input("ping> ").strip()
-            input_count += 1
-        print("")
-        print("Pinging server in mode: {}".format(client_input))
-        print("")
-    
-        # Ping for 10 times
-        while ptime < 10:
-            ptime += 1
-            # Format the message to be sent
-            message = client_input
-    
-            try:
-                # Sent time
-                RTTb = time.time()
-    
-                # Send the UDP packet with the ping message
-                try:
-                    s.sendto(message.encode("utf-8"), (host, port))
-                except socket.error as msg:
-                    print(str(msg))
-    
-                # Receive the server response
-                data, addr = s.recvfrom(2048)
-    
-                # Received time
-                RTTa = time.time()
-    
-                # Compute RTT
-                RTT_packet = RTTa - RTTb
-                RTT = (RTT_packet) + RTT
-    
-                # Display packet time
-                dataCount = len(data)
-                print(
-                    "{} bytes from {}: seq={} time={} ms".format(
-                        dataCount, addr[0], ptime, RTT_packet * 1000
-                    )
-                )
-    
-                # Delay for readability
-                sleep(1)
-    
-            except:
-                # Server does not response
-                # Assume the packet is lost
-                print("Request timed out.")
-                packet_lost += 1
-                continue
-    
-        # Close socket
-        s.close()
-<p align="center">Figure 6 (Snippet of the code from server.py)</p>
-</p></dd></dl> 
-
 <h2>Conclusion</h3>  <a name="conclusion"></a>
 
 <dl><dd>
  <p>
-  
+     The client is able to store files, retrieve files, login, logout, make directories, remove directories, navigate directories, send messages, list the current directory, and more on the FTP server.
  </p>
 </dd><dl>
     
